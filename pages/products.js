@@ -1,34 +1,25 @@
-import {useState, useEffect} from 'react'
-import Link from "next/link";
-import MainContainer from "../components/MainContainer";
+import MainLayout from "../components/MainLayout";
+import { getAllProducts } from "../api/apiRequests";
+import ProductsList from "../components/ProductsList";
+import styles from "../styles/pages/products.module.scss";
 
-const Products = ({product}) => {
-    return (
-        <MainContainer>
-            <h1>Cписок товаров</h1>
-            <ul>
-                {product.map(product =>
-                    <li key={product.id}>
-                        <Link href={`/products/${product.id}`}>
-                            {product.title}
-                        </Link>
-                    </li>
-                )}
-            </ul>
-        </MainContainer>
-    );
+const Products = ({ products }) => {
+  return (
+    <MainLayout>
+      <h1 className={styles["h1"]}>Фотокарточки</h1>
+      <ProductsList dataList={products} />
+    </MainLayout>
+  );
 };
 
 export default Products;
 
 export async function getStaticProps(context) {
-    const response = await fetch(`https://649b5496bf7c145d023a3abb.mockapi.io/cards`)
-    const products = await response.json()
-
-    return {
-        props: {
-            product: products,
-        }, 
-        revalidate: 2,
-    }
+  const products = await getAllProducts();
+  return {
+    props: {
+      products,
+    },
+    revalidate: 5,
+  };
 }
