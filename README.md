@@ -20,4 +20,4 @@
 
 
 
-# [Нажмите](https://grand-profiterole-87f573.netlify.app/), чтобы открыть приложение.
+# [Нажмите](https://gorizont-test-task.vercel.app/), чтобы открыть приложение.
