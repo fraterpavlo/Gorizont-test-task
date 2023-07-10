@@ -2,6 +2,17 @@
   text-align: center;
 }
 
-.products-list {
+.content-container {
   margin-top: 20px;
+  padding: 15px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  column-gap: 20px;
+
+  @media (max-width: 950px) {
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 30px;
+  }
 }

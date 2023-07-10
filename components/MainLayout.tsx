@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import styles from "../styles/components/MainLayout.module.scss";
+import React from "react";
 
 const MainLayout = ({ children }) => {
   return (
@@ -22,7 +23,10 @@ const MainLayout = ({ children }) => {
       <div className={styles["main-content"]}>{children}</div>
 
       <footer className={styles["footer"]}>
-        Вы также можете посмотреть мое <a href="https://grand-profiterole-87f573.netlify.app/" target="_blank">портфолио</a> 
+        Вы также можете посмотреть мое{" "}
+        <a href="https://grand-profiterole-87f573.netlify.app/" target="_blank">
+          портфолио
+        </a>
       </footer>
     </div>
   );

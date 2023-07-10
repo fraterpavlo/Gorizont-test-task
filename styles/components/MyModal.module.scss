@@ -22,12 +22,11 @@
 }
 
 .modal__content {
-  min-width: 50%;
-  max-width: 70%;
-  height: auto;
-  max-height: 80%;
+  max-width: 80%;
+  max-height: 80vh;
   display: flex;
   flex-direction: column;
+  row-gap: 30px;
   align-items: center;
   justify-content: space-between;
   padding: 20px;

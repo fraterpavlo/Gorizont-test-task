@@ -1,8 +1,6 @@
-import React from "react"
-import { useHover } from "../hooks/useHover";
+import React from "react";
 
 function HeartIcon() {
-
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

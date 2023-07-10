@@ -4,19 +4,24 @@ import styles from "../styles/components/ProductCard.module.scss";
 import { toggleIsFavoriteProductById } from "../api/apiRequests";
 import cn from "classnames";
 import { useState } from "react";
-import HeartIcon from '../icons/heartIcon'
+import HeartIcon from "../icons/heartIcon";
+import React from "react";
+import { useAppDispatch } from "../hooks/hooks";
+import { toggleIsFavoriteProduct } from "../store/reducers/catalogPageSlice";
 
 export function ProductCard({ cardData, onClickCallBack }) {
   const [isFavorite, setIsFavorite] = useState(cardData.isFavorite);
+  const dispatch = useAppDispatch();
 
   const myLoader = ({ src }) => {
-    return `${cardData.avatar}`; //!найти картинки по размерам
+    return `${cardData.avatar}`;
   };
 
   async function onAddToFavoriteHandler(e) {
     e.stopPropagation();
+    await toggleIsFavoriteProductById(cardData.id, !isFavorite);
     setIsFavorite(!isFavorite);
-    await toggleIsFavoriteProductById(cardData.id, !cardData.isFavorite);
+    dispatch(toggleIsFavoriteProduct(cardData.id));
   }
 
   return (

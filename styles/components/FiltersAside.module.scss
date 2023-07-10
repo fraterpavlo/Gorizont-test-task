@@ -1,0 +1,113 @@
+@import "../mixins";
+
+.catalog-page__filters {
+  flex-basis: 17%;
+  max-width: 17%;
+  min-width: 200px;
+
+  @media (max-width: 950px) {
+    flex-basis: auto;
+    max-width: 100%;
+  }
+}
+
+.filters {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 25px;
+
+  &__products-category-title {
+    margin-top: 5px;
+    @include fontz(32px, 45px, 700);
+    color: #1b1b1b;
+  }
+}
+
+.total-count {
+  display: flex;
+  column-gap: 3px;
+  @include fontz(14px, 20px, 500);
+  color: #898989;
+
+  &__label {
+  }
+
+  &__output {
+  }
+}
+
+.country-filter {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+
+  &__label {
+    @include fontz(16px, 22px, 700);
+    color: #1b1b1b;
+  }
+
+  &__countries-list-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+
+    @media (max-width: 950px) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      column-gap: 10px;
+      row-gap: 2px;
+    }
+  }
+
+  &__countries-item {
+  }
+}
+
+.country-filter-item,
+.only-favorites {
+  display: block;
+  padding-left: 27px;
+  @include fontz(14px, 20px, 500);
+  color: #1b1b1b;
+  cursor: pointer;
+
+  &__input {
+    &_original {
+      position: absolute;
+      appearance: none;
+      -moz-appearance: none;
+      -webkit-appearance: none;
+    }
+
+    &_custom {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      margin-left: -27px;
+      border: 1px solid #dbdbdb;
+      border-radius: 4px;
+    }
+
+    &_original:checked + &_custom {
+      background-color: #7993a6;
+
+      &::after {
+        content: "✔";
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        color: #ffffff;
+        font-size: 10px;
+      }
+    }
+
+    &_original:focus + &_custom {
+      border: 3px solid #898989;
+    }
+  }
+}
